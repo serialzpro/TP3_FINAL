@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-2.0" prefHeight="723.0" prefWidth="978.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Box Manager" textOrigin="CENTER" wrappingWidth="385.1328125">
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Text>
+            <HBox prefHeight="23.0" prefWidth="978.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom de la boite :" wrappingWidth="243.9326171875">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </Text>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" text="Créer">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Bus">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <TableView editable="true" maxWidth="-Infinity" prefHeight="178.0" prefWidth="615.0">
+              <columns>
+                <TableColumn maxWidth="614.0" minWidth="200.0" prefWidth="614.0" text="C1" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
