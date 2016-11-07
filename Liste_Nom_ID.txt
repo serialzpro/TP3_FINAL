@@ -1,0 +1,20 @@
+Message Manager :
+Label contenue : lblMessage
+Button créer : butMessage
+Table : tabMessage
+Colone numéro : colNum
+Colone contenu : colContenu
+
+Box Manager : 
+label nomBoite : lblBoite
+Button créer : butBoite
+Table : tabBoite
+colone nom : colNomBoite
+colone nb Mes : colNbMes
+
+Bus Manager :
+
+label NomBus : lblBus
+Button créer : butBus
+Table : tabBus
+Colone nom : colNomBus
