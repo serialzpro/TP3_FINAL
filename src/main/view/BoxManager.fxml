@@ -6,18 +6,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.BoxManager">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="-2.0" prefHeight="723.0" prefWidth="978.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bus Manager" textOrigin="CENTER" wrappingWidth="385.1328125">
+            <Label fx:id="topText" text="Box Manager">
                <font>
                   <Font size="60.0" />
                </font>
-            </Text>
+            </Label>
             <HBox prefHeight="23.0" prefWidth="978.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du bus :" wrappingWidth="243.9326171875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom de la boite :" wrappingWidth="243.9326171875">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -25,12 +25,12 @@
                         <Insets left="200.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField id="lblBus">
+                  <TextField id="lblBoite" fx:id="field_box_name">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button id="butBus" mnemonicParsing="false" text="Créer">
+                  <Button id="butBoite" fx:id="button_create_box" mnemonicParsing="false" onAction="#createBox" text="Créer">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -40,7 +40,7 @@
                   <Insets top="100.0" />
                </VBox.margin>
             </HBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Bus">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Boites">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -48,14 +48,22 @@
                   <Font size="30.0" />
                </font>
             </Text>
-            <TableView id="tabBus" editable="true" maxWidth="-Infinity" prefHeight="178.0" prefWidth="615.0">
-              <columns>
-                <TableColumn id="colNomBus" maxWidth="614.0" minWidth="200.0" prefWidth="614.0" text="Nom" />
-              </columns>
+            <ListView fx:id="table_box_list">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </VBox.margin>
-            </TableView>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </ListView>
+            <Button mnemonicParsing="false" onAction="#openBox" prefHeight="37.0" prefWidth="112.0" text="Ouvrir boite">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
          </children>
       </VBox>
    </children>

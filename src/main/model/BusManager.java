@@ -31,7 +31,7 @@ public class BusManager extends Observable{
 		System.out.println("Bus names :");
 		for(Bus b : mBusMap.values())
 		{
-			System.out.println(b.getName());
+			System.out.println(b.getmName());
 		}
 	}
 	

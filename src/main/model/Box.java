@@ -198,6 +198,10 @@ public class Box extends Observable{
 			res.add(m.getContent());
 		return res;
 	}
+
+	public String getLastMessage() {
+		return mMessages.get(mMessages.size()-1).getContent();
+	}
 	
 	
 }

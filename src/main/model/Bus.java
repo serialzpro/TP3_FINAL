@@ -1,5 +1,8 @@
 package main.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -8,20 +11,20 @@ import java.util.Observable;
 
 public class Bus extends Observable{
 	
-	final private String mName;
+	final private SimpleStringProperty mName;
 	final private HashMap<String, Box> mBoxMap;
 	
 	public Bus(String name)
 	{	
-		mName = name;
+		mName = new SimpleStringProperty(name);
 		mBoxMap = new HashMap<String, Box>();
 		mBoxMap.put("default", new Box("default"));
 	}
 	
 	//added for busManager (TD3)
-	public String getName()
+	public String getmName()
 	{
-		return mName;
+		return mName.get();
 	}
 	
 	public boolean createBox(String newBoxName)
