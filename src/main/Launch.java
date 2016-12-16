@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.controller.CLIController;
 import main.model.BusManager;
 
 import java.io.IOException;
@@ -34,5 +35,7 @@ public class Launch extends Application {
         }
         primaryStage.setTitle("Test FXML");
         primaryStage.show();
+        CLIController command = new CLIController();
+        command.run();
     }
 }

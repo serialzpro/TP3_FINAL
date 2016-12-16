@@ -1,18 +1,18 @@
 package main.controller;
 
+import main.CurrentData;
 import main.model.BusManager;
 import main.view.CLIUi;
 
 public class CLIController extends Thread{
 
 	private CLIUi mUi;
-	private BusManager mBusMgr;
+
 	
-	public CLIController(BusManager busMgr)
+	public CLIController()
 	{
 		mUi = new CLIUi();
-		mBusMgr = busMgr;
-		mBusMgr.addObserver(mUi);
+		CurrentData.currentManager.addObserver(mUi);
 	}
 	
 	public void run ()
@@ -28,9 +28,10 @@ public class CLIController extends Thread{
 			
 			if(command[0].equals("mkbus") && command.length == 2)
 			{
-				if(mBusMgr.createBus(command[1]))
+				if(CurrentData.currentManager.createBus(command[1]))
 				{
 					mUi.print("cmd success: bus "+command[1]+" created");
+
 				}
 				else
 				{
@@ -39,7 +40,7 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("mkbox") && command.length == 3)
 			{
-				if(mBusMgr.createBox(command[1], command[2]))
+				if(CurrentData.currentManager.createBox(command[1], command[2]))
 				{
 					mUi.print("cmd success: box "+command[2]+" created into bus "+command[1]);
 				}
@@ -50,7 +51,7 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("ebus") && command.length == 3)
 			{
-				if(mBusMgr.emit(command[1], command[2]))
+				if(CurrentData.currentManager.emit(command[1], command[2]))
 				{
 					mUi.print("cmd success: message "+command[2]+" emit into bus "+command[1]);
 				}
@@ -61,7 +62,7 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("ebox") && command.length == 4)
 			{
-				if(mBusMgr.emitIntoBox(command[1], command[2], command[3]))
+				if(CurrentData.currentManager.emitIntoBox(command[1], command[2], command[3]))
 				{
 					mUi.print("cmd success: message "+command[3]+" emit into box "+command[2]+" of box "+command[3]);
 				}
@@ -72,11 +73,11 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("ls") && command.length == 1)
 			{
-				mUi.printBusManager(mBusMgr);
+				mUi.printBusManager(CurrentData.currentManager);
 			}
 			else if(command[0].equals("rmbus") && command.length == 2)
 			{
-				if(mBusMgr.destroyBus(command[1]))
+				if(CurrentData.currentManager.destroyBus(command[1]))
 				{
 					mUi.print("cmd success: bus "+command[1]+" destroyed ");
 				}
@@ -87,7 +88,7 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("rmbox") && command.length == 3)
 			{
-				if(mBusMgr.destroyBox(command[1], command[2]))
+				if(CurrentData.currentManager.destroyBox(command[1], command[2]))
 				{
 					mUi.print("cmd success: box "+command[2]+" of bus "+command[1]+" destroyed ");
 				}
@@ -98,11 +99,11 @@ public class CLIController extends Thread{
 			}
 			else if(command[0].equals("rmallolder") && command.length == 2)
 			{
-				mBusMgr.destroyMessagesOlderThan(Integer.parseInt(command[1]));
+				CurrentData.currentManager.destroyMessagesOlderThan(Integer.parseInt(command[1]));
 			}
 			else if(command[0].equals("rmallearlier") && command.length == 2)
 			{
-				mBusMgr.destroyMessagesEarlierThan(Integer.parseInt(command[1]));
+				CurrentData.currentManager.destroyMessagesEarlierThan(Integer.parseInt(command[1]));
 			}
 			else
 				mUi.help();
